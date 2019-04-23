@@ -1,1 +1,1 @@
-# Django-ContentType-
+# Django-ContentType
