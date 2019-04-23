@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import DegreeCourse, PricePolicy, ContentType
+from .models import DegreeCourse, PricePolicy, CommonCourse
 
 
 def test(request):
@@ -9,3 +9,12 @@ def test(request):
 
     return HttpResponse('OK')
 
+
+def test1(request, id):
+    # 1.根据学位课程ID获取课程，并获取该课程对应的所有价格策略
+    course = DegreeCourse.objects.filter(id=id).first()
+    # 对象列表
+    price_policys = course.price_policy_list.all()
+    print(price_policys)
+
+    return HttpResponse('OK')
