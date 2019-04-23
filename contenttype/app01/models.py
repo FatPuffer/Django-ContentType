@@ -26,7 +26,8 @@ class PricePolicy(models.Model):
     content_type = models.ForeignKey(ContentType, verbose_name='关联的表名称')
     object_id = models.IntegerField(verbose_name='关联表中的数据行ID')
 
-
+    # 帮助快速实现content_type操作
+    content_obj = GenericForeignKey('content_type', 'object_id')
 
 
 
